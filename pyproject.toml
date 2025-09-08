@@ -151,10 +151,7 @@ no_implicit_optional = true
 warn_return_any = false
 warn_unused_ignores = true
 follow_imports = "skip"
-#exclude = ['venv', '.venv', 'settings', 'tests', 'deploy', 'config', 'logs', '.github', '.vscode', '.idea', '.editorConfig']
-#files = "*/*.py"
-exclude = ["core/service.py", "core/enums.py", "docs"]
-packages = ["src", "core"]
+packages = ["catalog"]
 
 # https://coverage.readthedocs.io/en/latest/config.html
 [tool.coverage.run]
