@@ -13,4 +13,4 @@ permissions:
 
 jobs:
   wemake-review:
-    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/wemake-review.yml@latest
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/wemake-review.yml@main
