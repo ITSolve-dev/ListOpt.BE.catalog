@@ -6,4 +6,4 @@ on:
 
 jobs:
   cleanup:
-    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/common/clean-cache.yml@main
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/clean-cache.yml@main

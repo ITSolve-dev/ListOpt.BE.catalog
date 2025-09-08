@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
-        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/python/poetry-install@main
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/poetry-install@main
         with:
           python: 3.13.1
       - name: Lint
@@ -31,14 +31,14 @@ jobs:
 
   commit-lint-check:
     if: ${{ github.actor != 'dependabot[bot]' }}
-    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/common/commit-lint.yml@main
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/commit-lint.yml@main
 
   build:
     needs: [lint-format-mypy, commit-lint-check]
     runs-on: ubuntu-latest
     steps:
       - name: Docker build
-        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/deploy/check-docker-build.yml@main
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/check-docker-build.yml@main
 
   integration-tests:
     runs-on: ubuntu-latest
@@ -71,7 +71,7 @@ jobs:
           - 5432:5432
     steps:
       - name: Poetry install
-        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/python/poetry-install@main
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/poetry-install@main
         with:
           python: 3.13.1
       # - name: Run tests

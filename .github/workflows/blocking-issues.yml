@@ -12,4 +12,4 @@ jobs:
       checks: write
       issues: write
       pull-requests: write
-    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/common/blocking-issues.yml@main
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/blocking-issues.yml@main
