@@ -52,6 +52,8 @@ jobs:
     steps:
       - name: Docker build
         uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/check-docker-build@main
+        with:
+          context: ./deployment
 
   integration-tests:
     needs: [unit, commit, type, code, build]
