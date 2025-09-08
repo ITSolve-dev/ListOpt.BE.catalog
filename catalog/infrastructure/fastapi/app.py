@@ -15,7 +15,10 @@ from starlette.types import ExceptionHandler
 
 from catalog import error_names, scopes
 from catalog.domain.exceptions import BaseError, CartAlreadyExistsError
-from catalog.infrastructure.db.orm import map_entities_on_tables, mapper_registry
+from catalog.infrastructure.db.orm import (
+    map_entities_on_tables,
+    mapper_registry,
+)
 from catalog.infrastructure.executable import ExecutableProtocol
 from catalog.infrastructure.security import (
     JwtService,
@@ -125,13 +128,16 @@ class HTTPApp(FastAPI, ExecutableProtocol):
     def _configure_routers(self):
         self.include_router(health_router)
         self.include_router(
-            cart_router, dependencies=[Depends(self.__get_jwt_bearer_security())]
+            cart_router,
+            dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
         self.include_router(
-            category_router, dependencies=[Depends(self.__get_jwt_bearer_security())]
+            category_router,
+            dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
         self.include_router(
-            product_router, dependencies=[Depends(self.__get_jwt_bearer_security())]
+            product_router,
+            dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
 
     def _configure_cors(self): ...
@@ -155,7 +161,9 @@ class HTTPApp(FastAPI, ExecutableProtocol):
     def _error_handler_factory(self, status: int) -> ExceptionHandler:
         async def _handler(_: Request, e: Exception) -> Response:
             exc = cast(BaseError, e)
-            response = FailedResponse(ctx=exc.ctx, error=exc.code, info=exc.description)
+            response = FailedResponse(
+                ctx=exc.ctx, error=exc.code, info=exc.description
+            )
             return JSONResponse(
                 content=jsonable_encoder(response, exclude_none=True),
                 status_code=status,
@@ -163,11 +171,15 @@ class HTTPApp(FastAPI, ExecutableProtocol):
 
         return _handler
 
-    def _override_validation_exception(self, _: Request, e: Exception) -> Response:
+    def _override_validation_exception(
+        self, _: Request, e: Exception
+    ) -> Response:
         exc = cast(RequestValidationError, e)
         response = []
         for error in exc.errors():
-            code = f"catalog.{scopes.PRESENTATION}.{error_names.VALIDATION_ERROR}"
+            code = (
+                f"catalog.{scopes.PRESENTATION}.{error_names.VALIDATION_ERROR}"
+            )
             type = error.get("type", None)
             if type:
                 code += f".{type}"
@@ -185,7 +197,9 @@ class HTTPApp(FastAPI, ExecutableProtocol):
 
     async def _error_handler(self, _: Request, e: Exception) -> Response:
         exc = cast(BaseError, e)
-        response = FailedResponse(ctx=exc.ctx, error=exc.code, info=exc.description)
+        response = FailedResponse(
+            ctx=exc.ctx, error=exc.code, info=exc.description
+        )
         statuses: dict[str, int] = {
             error_names.NOT_FOUND: status.HTTP_404_NOT_FOUND,
             error_names.ALREADY_EXISTS: status.HTTP_409_CONFLICT,

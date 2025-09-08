@@ -34,6 +34,14 @@ class Product(Entity):
     photo: ProductPhoto | None = Field(default=None)
     fields: list[ProductField] = Field(default_factory=list)
 
+    def __hash__(self) -> int:
+        return hash(self.identifier)
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Product):
+            return NotImplemented
+        return self.identifier == other.identifier
+
     @classmethod
     def create(
         cls,

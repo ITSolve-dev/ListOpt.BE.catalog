@@ -9,3 +9,6 @@ class ProductIdentifier(ValueObject):
     # TODO: Add validation for article and barcode
     article: str = Field()
     barcode: str = Field()
+
+    def __hash__(self) -> int:
+        return hash(self.article + self.barcode)

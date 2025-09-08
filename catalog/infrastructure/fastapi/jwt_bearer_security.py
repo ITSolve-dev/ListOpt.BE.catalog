@@ -1,6 +1,10 @@
 from starlette.authentication import UnauthenticatedUser
 
-from catalog.infrastructure.security import JwtDecoder, PayloadSchema, PermissionService
+from catalog.infrastructure.security import (
+    JwtDecoder,
+    PayloadSchema,
+    PermissionService,
+)
 from fastapi import Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
@@ -26,7 +30,9 @@ class JWTBearerSecurity(HTTPBearer):
         self.jwt_decoder = jwt_decoder
         self.permission_service = permission_service
 
-    async def __call__(self, request: Request) -> HTTPAuthorizationCredentials | None:
+    async def __call__(
+        self, request: Request
+    ) -> HTTPAuthorizationCredentials | None:
         credentials = await super().__call__(request)
         if credentials is None:
             request.scope["user"] = UnauthenticatedUser()

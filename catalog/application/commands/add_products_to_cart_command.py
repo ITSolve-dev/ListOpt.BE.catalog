@@ -8,7 +8,9 @@ QuantityInt = int
 
 
 class AddProductsToCartCommand:
-    def __init__(self, cart_service: CartService, product_service: ProductService):
+    def __init__(
+        self, cart_service: CartService, product_service: ProductService
+    ):
         self._cart_service = cart_service
         self._product_service = product_service
 
@@ -28,7 +30,9 @@ class AddProductsToCartCommand:
             cart,
             [
                 (product, Quantity(quantity))
-                for product, (_, quantity) in zip(products, products_ids_to_add_tuple)
+                for product, (_, quantity) in zip(
+                    products, products_ids_to_add_tuple, strict=False
+                )
             ],
         )
         return cart

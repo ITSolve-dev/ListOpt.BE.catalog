@@ -1,12 +1,15 @@
 from pydantic import BaseModel
+
+from .._base import Payload
 from .jwt_decoder import JwtDecoder
 from .jwt_encoder import JwtEncoder
-from .._base import Payload
 
 
 class JwtService[SchemaType: BaseModel = Payload]:
     def __init__(
-        self, jwt_decoder: JwtDecoder[SchemaType], jwt_encoder: JwtEncoder[SchemaType]
+        self,
+        jwt_decoder: JwtDecoder[SchemaType],
+        jwt_encoder: JwtEncoder[SchemaType],
     ):
         self.__jwt_decoder = jwt_decoder
         self.__jwt_encoder = jwt_encoder

@@ -18,7 +18,9 @@ class PaginateProductsQuery:
     def __init__(self, uow: AbstractUnitOfWork):
         self.uow = uow
 
-    async def __call__(self, *, page: int, page_size: int) -> PaginatedProducts:
+    async def __call__(
+        self, *, page: int, page_size: int
+    ) -> PaginatedProducts:
         async with self.uow:
             products = await self.uow.product_repo.paginate(page, page_size)
             total = await self.uow.product_repo.count()

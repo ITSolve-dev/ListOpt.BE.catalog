@@ -12,7 +12,9 @@ from .product_in_cart_factory import ProductInCartFactory
 
 
 def generate_products():
-    return [ProductInCartFactory.create() for _ in range(random.randint(0, 10))]
+    return [
+        ProductInCartFactory.create() for _ in range(random.randint(0, 10))
+    ]
 
 
 class CartFactory(TimestampMixin, IDMixin, Factory[Cart]):

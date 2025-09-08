@@ -6,7 +6,9 @@ from catalog.application.commands.add_product_command import (
     AddProductDTO,
 )
 from catalog.application.queries.get_product_query import GetProductQuery
-from catalog.application.queries.paginate_products_query import PaginateProductsQuery
+from catalog.application.queries.paginate_products_query import (
+    PaginateProductsQuery,
+)
 
 from .schemas import (
     AddProductRequest,
@@ -37,9 +39,13 @@ async def get_product_by_id(
 async def add_product(
     data: AddProductRequest = Body(...),
     photo: UploadFile = File(...),
-    add_product_command: AddProductCommand = Depends(Provide["add_product_command"]),
+    add_product_command: AddProductCommand = Depends(
+        Provide["add_product_command"]
+    ),
 ) -> AddProductResponse:
-    product = await add_product_command(AddProductDTO.model_validate(data.model_dump()))
+    product = await add_product_command(
+        AddProductDTO.model_validate(data.model_dump())
+    )
     return AddProductResponse(product=product)
 
 

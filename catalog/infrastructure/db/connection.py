@@ -1,5 +1,6 @@
 import logging
 from abc import abstractmethod
+from types import TracebackType
 from typing import Any, Protocol
 
 from pydantic import BaseModel
@@ -18,16 +19,21 @@ class IDBConnection(Protocol):
     async def __aenter__(self) -> AsyncSession: ...
 
     @abstractmethod
-    async def __aexit__(self, exc_type, exc_val, exc_tb): ...
+    async def __aexit__(
+        self,
+        exc_type: type[Exception] | None,
+        exc_val: Exception | None,
+        exc_tb: TracebackType | None,
+    ) -> None: ...
 
     @abstractmethod
-    async def commit(self): ...
+    async def commit(self) -> None: ...
 
     @abstractmethod
-    async def rollback(self): ...
+    async def rollback(self) -> None: ...
 
     @abstractmethod
-    async def close(self): ...
+    async def close(self) -> None: ...
 
     @property
     @abstractmethod
@@ -49,9 +55,7 @@ class DBConnection(IDBConnection):
     _session_factory: async_sessionmaker[AsyncSession]
     _engine: AsyncEngine
 
-    def __init__(self, url: str, config: dict[str, Any]):
-        print(url)
-        print(config)
+    def __init__(self, url: str, config: dict[str, Any]) -> None:
         self._config = DBConfig.model_validate(config)
         self._engine = create_async_engine(
             url,
@@ -60,30 +64,38 @@ class DBConnection(IDBConnection):
             pool_size=self._config.pool_size,
         )
         self._session_factory = async_sessionmaker(
-            self._engine, class_=AsyncSession, expire_on_commit=False, autoflush=False
+            self._engine,
+            class_=AsyncSession,
+            expire_on_commit=False,
+            autoflush=False,
         )
         self._session = None
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> AsyncSession:
         logger.debug("Open db connection")
         self._session = self._session_factory()
         return self._session
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
+    async def __aexit__(
+        self,
+        exc_type: type[Exception] | None,
+        exc_val: Exception | None,
+        exc_tb: TracebackType | None,
+    ) -> None:
         if exc_type:
             logger.debug("Rollback db connection cause %s", exc_val)
             await self.rollback()
         await self.close()
         logger.debug("Close db connection")
 
-    async def close(self):
+    async def close(self) -> None:
         await self.session.close()
         self._session = None
 
-    async def commit(self):
+    async def commit(self) -> None:
         await self.session.commit()
 
-    async def rollback(self):
+    async def rollback(self) -> None:
         await self.session.rollback()
 
     @property

@@ -8,7 +8,9 @@ product_fields_table = with_timestamp(
         "product_fields",
         mapper_registry.metadata,
         Column("id", Integer, primary_key=True),
-        Column("product_id", Integer, ForeignKey("products.id"), nullable=False),
+        Column(
+            "product_id", Integer, ForeignKey("products.id"), nullable=False
+        ),
         Column("name", String(50)),
         Column("value", String(50)),
         Column("measure", String(50)),

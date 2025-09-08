@@ -19,7 +19,9 @@ class AddProductRequest(RequestSchema):
         measure: str = Field(min_length=2, max_length=64)
 
     company_id: int = Field(gt=0, examples=[1, 2])
-    name: str = Field(min_length=2, max_length=100, examples=["milk", "cheese"])
+    name: str = Field(
+        min_length=2, max_length=100, examples=["milk", "cheese"]
+    )
     article: str = Field(min_length=1, max_length=15, examples=["123456789"])
     barcode: str = Field(min_length=1, max_length=15, examples=["123456789"])
     price_internal: float = Field(gt=0, examples=[1.23])

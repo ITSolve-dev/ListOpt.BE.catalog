@@ -11,7 +11,9 @@ from catalog.application.commands.change_quantities_products_in_cart_command imp
 from catalog.application.commands.remove_products_from_cart_command import (
     RemoveProductsFromCartCommand,
 )
-from catalog.application.queries.get_cart_by_user_query import GetCartByUserQuery
+from catalog.application.queries.get_cart_by_user_query import (
+    GetCartByUserQuery,
+)
 from catalog.domain.exceptions import CartNotFoundError
 from catalog.infrastructure.fastapi.dependencies import UserDep
 
@@ -67,7 +69,9 @@ async def delete_products_from_cart(
         Provide["remove_products_from_cart_command"]
     ),
 ) -> DeleteProductsFromCartResponse:
-    cart = await remove_products_from_cart_command.execute(user.id, data.product_ids)
+    cart = await remove_products_from_cart_command.execute(
+        user.id, data.product_ids
+    )
     return DeleteProductsFromCartResponse(cart=cart)
 
 

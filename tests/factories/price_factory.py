@@ -11,5 +11,9 @@ class PriceFactory(Factory[Price], TimestampMixin, IDMixin):
     class Meta:  # type: ignore
         model = Price
 
-    internal = LazyAttribute(lambda _: float(faker.random_int(min=100, max=10000)))
-    external = LazyAttribute(lambda _: float(faker.random_int(min=100, max=10000)))
+    internal = LazyAttribute(
+        lambda _: float(faker.random_int(min=100, max=10000))
+    )
+    external = LazyAttribute(
+        lambda _: float(faker.random_int(min=100, max=10000))
+    )

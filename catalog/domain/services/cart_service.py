@@ -45,13 +45,17 @@ class CartService:
             await self._uow.cart_repo.save(cart)
         return cart
 
-    async def remove_products(self, cart: Cart, product_ids: list[int]) -> Cart:
+    async def remove_products(
+        self, cart: Cart, product_ids: list[int]
+    ) -> Cart:
         cart.remove_products(product_ids)
         async with self._uow:
             await self._uow.cart_repo.save(cart)
         return cart
 
-    async def change_quantities(self, cart: Cart, data: dict[int, int]) -> Cart:
+    async def change_quantities(
+        self, cart: Cart, data: dict[int, int]
+    ) -> Cart:
         cart.change_quantities(data)
         async with self._uow:
             await self._uow.cart_repo.save(cart)

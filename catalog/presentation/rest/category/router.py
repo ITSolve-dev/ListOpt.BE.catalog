@@ -11,7 +11,9 @@ category_router = APIRouter(prefix="/categories", tags=["Categories"])
 @category_router.get("")
 @inject
 async def get_categories(
-    get_categories_query: GetCategoriesQuery = Depends(Provide["get_categories_query"]),
+    get_categories_query: GetCategoriesQuery = Depends(
+        Provide["get_categories_query"]
+    ),
 ) -> GetCategoriesResponse:
     categories = await get_categories_query()
     return GetCategoriesResponse(categories=categories)

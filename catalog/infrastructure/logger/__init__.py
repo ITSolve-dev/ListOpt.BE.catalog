@@ -4,7 +4,10 @@ import logging
 
 class DefaultFormatter(logging.Formatter):
     def __init__(
-        self, prefix: str | None = None, log_fmt: str | None = None, datefmt=None
+        self,
+        prefix: str | None = None,
+        log_fmt: str | None = None,
+        datefmt=None,
     ):
         super().__init__(datefmt=datefmt)
         self.log_fmt = (

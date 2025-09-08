@@ -1,4 +1,12 @@
-from sqlalchemy import DECIMAL, Column, Float, ForeignKey, Integer, String, Table
+from sqlalchemy import (
+    DECIMAL,
+    Column,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Table,
+)
 
 from .registry import mapper_registry
 from .with_timestamp import with_timestamp
@@ -21,6 +29,8 @@ products_table = with_timestamp(
         Column("height", Float(2)),
         Column("depth", Float(2)),
         Column("weight", Float(2)),
-        Column("category_id", Integer, ForeignKey("categories.id"), nullable=False),
+        Column(
+            "category_id", Integer, ForeignKey("categories.id"), nullable=False
+        ),
     )
 )

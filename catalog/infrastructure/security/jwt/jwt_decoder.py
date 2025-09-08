@@ -1,13 +1,17 @@
+from typing import Sequence
+
 import jwt
 from pydantic import BaseModel
-from typing import Sequence
 
 from .._base import Payload
 
 
 class JwtDecoder[ReturnType: BaseModel = Payload]:
     def __init__(
-        self, schema: type[ReturnType], key: str, algorithms: Sequence = ["HS256"]
+        self,
+        schema: type[ReturnType],
+        key: str,
+        algorithms: Sequence = ["HS256"],
     ):
         self._schema = schema
         self._key = key

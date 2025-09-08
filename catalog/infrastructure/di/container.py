@@ -11,10 +11,14 @@ from catalog.application.commands.change_quantities_products_in_cart_command imp
 from catalog.application.commands.remove_products_from_cart_command import (
     RemoveProductsFromCartCommand,
 )
-from catalog.application.queries.get_cart_by_user_query import GetCartByUserQuery
+from catalog.application.queries.get_cart_by_user_query import (
+    GetCartByUserQuery,
+)
 from catalog.application.queries.get_categories_query import GetCategoriesQuery
 from catalog.application.queries.get_product_query import GetProductQuery
-from catalog.application.queries.paginate_products_query import PaginateProductsQuery
+from catalog.application.queries.paginate_products_query import (
+    PaginateProductsQuery,
+)
 from catalog.domain.ports.uow import AbstractUnitOfWork
 from catalog.domain.services.cart_service import CartService
 from catalog.domain.services.category_service import CategoryService
@@ -62,7 +66,9 @@ class Container(containers.DeclarativeContainer):
     runner = providers.Singleton[Runner](Runner, http_app=http_app)
 
     db_connection = providers.Singleton[IDBConnection](
-        DBConnection, url=config.database.URL.required(), config=config.database
+        DBConnection,
+        url=config.database.URL.required(),
+        config=config.database,
     )
 
     uow = providers.Singleton[AbstractUnitOfWork](
@@ -108,7 +114,9 @@ class Container(containers.DeclarativeContainer):
         category_service=category_service,
         product_service=product_service,
     )
-    add_products_to_cart_command = providers.Singleton[AddProductsToCartCommand](
+    add_products_to_cart_command = providers.Singleton[
+        AddProductsToCartCommand
+    ](
         AddProductsToCartCommand,
         cart_service=cart_service,
         product_service=product_service,

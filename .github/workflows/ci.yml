@@ -13,7 +13,7 @@ permissions:
   deployments: write
 
 jobs:
-  lint-format-mypy:
+  lint-format:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
@@ -24,8 +24,22 @@ jobs:
         run: poetry run ruff check
       - name: Formatting
         run: poetry run ruff format --check
+  mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Poetry install
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/poetry-install@main
+        with:
+          python: 3.13.1
       - name: Type check
         run: poetry run mypy
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Poetry install
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/poetry-install@main
+        with:
+          python: 3.13.1
       - name: Unit tests
         run: poetry run pytest ./tests/unit
 

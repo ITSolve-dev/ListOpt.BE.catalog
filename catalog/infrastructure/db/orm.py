@@ -1,6 +1,12 @@
 from sqlalchemy.orm import composite, relationship
 
-from catalog.domain.entities import Cart, Category, Product, ProductField, ProductInCart
+from catalog.domain.entities import (
+    Cart,
+    Category,
+    Product,
+    ProductField,
+    ProductInCart,
+)
 from catalog.domain.value_objects import Dimension, Price, ProductIdentifier
 
 from .tables import (
@@ -27,7 +33,9 @@ def map_entities_on_tables():
         ProductInCart,
         products_in_cart_table,
         properties={
-            "product": relationship(Product, lazy="noload", passive_deletes=True),
+            "product": relationship(
+                Product, lazy="noload", passive_deletes=True
+            ),
         },
     )
     mapper_registry.map_imperatively(
@@ -41,7 +49,9 @@ def map_entities_on_tables():
             "category": relationship(Category, lazy="noload"),
             "fields": relationship(ProductField, lazy="noload"),
             "price": composite(
-                Price, products_table.c.price_internal, products_table.c.price_external
+                Price,
+                products_table.c.price_internal,
+                products_table.c.price_external,
             ),
             "dimension": composite(
                 Dimension,

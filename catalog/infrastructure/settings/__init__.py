@@ -10,7 +10,9 @@ from pydantic_settings import (
     YamlConfigSettingsSource,
 )
 
-LOG_LEVEL_TYPE = Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "TRACE"]
+LOG_LEVEL_TYPE = Literal[
+    "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL", "TRACE"
+]
 
 
 class ServerSettings(BaseSettings):
@@ -24,7 +26,9 @@ class ServerSettings(BaseSettings):
     reload: bool = Field(default=True, description="Reload server")
     workers: int = Field(default=1, description="Workers for server")
     root_path: str = Field(default="", description="Root path for server")
-    root_path_in_servers: bool = Field(default=True, description="Root path in servers")
+    root_path_in_servers: bool = Field(
+        default=True, description="Root path in servers"
+    )
     prefix: str = Field(default="", description="Prefix for server")
     allow_origins: list[str] = Field(
         default=["*"], description="Allow hostnames for requests"
@@ -88,7 +92,9 @@ class JwtSettings(BaseSettings):
     refresh_token_lifetime: int = Field(
         default=30, description="Expiration refresh token in days"
     )
-    SIGNING_KEY: str = Field(default="secret", description="Secret key of sign of jwt")
+    SIGNING_KEY: str = Field(
+        default="secret", description="Secret key of sign of jwt"
+    )
 
     @classmethod
     def settings_customise_sources(
@@ -204,7 +210,9 @@ class Settings(BaseSettings):
     server: ServerSettings = Field(default_factory=ServerSettings)
     project: ProjectSettings = Field(default_factory=ProjectSettings)
     jwt: JwtSettings = Field(default_factory=JwtSettings)
-    permissions: PermissionsSettings = Field(default_factory=PermissionsSettings)
+    permissions: PermissionsSettings = Field(
+        default_factory=PermissionsSettings
+    )
 
 
 @cache

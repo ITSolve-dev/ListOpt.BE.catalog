@@ -1,7 +1,12 @@
 import random
 
 from factory.base import Factory
-from factory.declarations import LazyAttribute, LazyFunction, SubFactory
+from factory.declarations import (
+    LazyAttribute,
+    LazyFunction,
+    Sequence,
+    SubFactory,
+)
 
 from catalog.domain.entities import Product
 from catalog.domain.value_objects import (
@@ -21,7 +26,7 @@ from .product_field_factory import ProductFieldFactory
 from .product_identifier_factory import ProductIdentifierFactory
 
 
-def generate_fields(product):
+def generate_fields(product: "ProductFactory") -> list:
     return [
         ProductFieldFactory.create(product_id=product.id)
         for _ in range(random.randint(0, 10))
@@ -32,12 +37,14 @@ class ProductFactory(TimestampMixin, Factory[Product]):
     class Meta:  # type: ignore
         model = Product
 
-    id = IDSequence
+    id = Sequence(lambda n: n + 1)
     company_id = ValueObjectIntSequence(CompanyID)
     name = LazyFunction(lambda: ProductName(faker.name()))
     identifier = SubFactory(ProductIdentifierFactory)
     price = SubFactory(PriceFactory)
-    amount = LazyFunction(lambda: PositiveInt(faker.random_int(min=1, max=10000)))
+    amount = LazyFunction(
+        lambda: PositiveInt(faker.random_int(min=1, max=10000))
+    )
     description = LazyFunction(faker.text)
     photo = LazyFunction(lambda: ProductPhoto(faker.url()))
     dimension = SubFactory(DimensionFactory)

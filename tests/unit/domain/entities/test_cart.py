@@ -3,6 +3,7 @@ from decimal import Decimal
 import pytest
 
 from catalog.domain.entities import Cart, ProductInCart
+from catalog.domain.exceptions import CartAlreadyHaveProductsError
 from catalog.domain.value_objects import Quantity, UserID
 from tests.factories import (
     CartFactory,
@@ -20,18 +21,22 @@ class TestCart:
     def test_cart_len(self, product_factory: ProductFactory):
         cart = Cart(user_id=UserID(1))
         assert len(cart) == 0
-        cart.add_products(
-            [
-                ProductInCart(
-                    product=product_factory.build(),
-                    quantity=Quantity(1),
-                )
-            ]
-        )
+        cart.products = [
+            ProductInCart(
+                product=product_factory.build(),
+                quantity=Quantity(1),
+            )
+        ]
         assert len(cart) == 1
 
     @pytest.mark.parametrize(
-        ("cart_id", "cart_user_id", "other_cart_id", "other_cart_user_id", "expected"),
+        (
+            "cart_id",
+            "cart_user_id",
+            "other_cart_id",
+            "other_cart_user_id",
+            "expected",
+        ),
         [
             (1, 1, 1, 1, True),
             (2, 1, 2, 1, True),
@@ -41,7 +46,12 @@ class TestCart:
         ],
     )
     def test_cart_equal(
-        self, cart_id, cart_user_id, other_cart_id, other_cart_user_id, expected
+        self,
+        cart_id: int,
+        cart_user_id: int,
+        other_cart_id: int,
+        other_cart_user_id: int,
+        expected: bool,
     ):
         cart = CartFactory.build(user_id=UserID(cart_user_id))
         other_cart = CartFactory.build(user_id=UserID(other_cart_user_id))
@@ -52,16 +62,34 @@ class TestCart:
 
     def test_cart_add_products(self, product_factory: ProductFactory):
         cart = Cart(user_id=UserID(1))
+        product = product_factory.build()
+        product.id = 1
         new_product = ProductInCart(
-            product=product_factory.build(),
+            product=product,
             quantity=Quantity(1),
         )
         cart.add_products([new_product])
         assert cart.products == [new_product]
 
+    def test_cart_add_existing_products_raise_error(
+        self, product_factory: ProductFactory
+    ):
+        cart = Cart(user_id=UserID(1))
+        product = product_factory.build()
+        product.id = 1
+        product_in_cart = ProductInCart(
+            product=product,
+            quantity=Quantity(1),
+        )
+        cart.products = [product_in_cart]
+        with pytest.raises(CartAlreadyHaveProductsError):
+            cart.add_products([product_in_cart])
+        assert cart.products == [product_in_cart]
+
     def test_cart_remove_products(self, product_factory: ProductFactory):
+        product_to_remove = product_factory.build()
         product1 = ProductInCart(
-            product=product_factory.build(),
+            product=product_to_remove,
             quantity=Quantity(1),
         )
         product2 = ProductInCart(
@@ -69,7 +97,8 @@ class TestCart:
             quantity=Quantity(1),
         )
         cart = Cart(user_id=UserID(1), products=[product1, product2])
-        cart.remove_products([product1])
+        cart.products = [product1, product2]
+        cart.remove_products([product_to_remove])
         assert cart.products == [product2]
 
     @pytest.mark.parametrize(
@@ -111,7 +140,9 @@ class TestCart:
             ),
         ],
     )
-    def test_cart_total_price(self, products, expected):
+    def test_cart_total_price(
+        self, products: list[ProductInCart], expected: int
+    ):
         cart = Cart(user_id=UserID(1), products=products)
         assert cart.total_price == expected
 
@@ -120,7 +151,9 @@ class TestCart:
         [
             ([], 0),
             (
-                ProductInCartFactory.build_batch(size=3, quantity=Quantity(10)),
+                ProductInCartFactory.build_batch(
+                    size=3, quantity=Quantity(10)
+                ),
                 30,
             ),
             (
@@ -139,6 +172,8 @@ class TestCart:
             ),
         ],
     )
-    def test_cart_total_quantity(self, products, expected):
+    def test_cart_total_quantity(
+        self, products: list[ProductInCart], expected: int
+    ):
         cart = Cart(user_id=UserID(1), products=products)
         assert cart.total_quantity == expected

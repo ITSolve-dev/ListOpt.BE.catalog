@@ -20,7 +20,9 @@ class PermissionService:
     def __init__(self, config: dict[str, Any]):
         self._config = PermissionsConfig.model_validate(config)
         self.enforcer = casbin.Enforcer(
-            self._config.model, self._config.policy, enable_log=self._config.log
+            self._config.model,
+            self._config.policy,
+            enable_log=self._config.log,
         )
 
     def check(self, user: BaseUser, resource: str, action: str) -> bool:

@@ -3,7 +3,10 @@ from decimal import Decimal
 from pydantic import BaseModel, Field
 
 from catalog.domain.entities import Product, ProductField
-from catalog.domain.exceptions import CategoryNotFoundError, ProductNotFoundError
+from catalog.domain.exceptions import (
+    CategoryNotFoundError,
+    ProductNotFoundError,
+)
 from catalog.domain.ports.uow import AbstractUnitOfWork
 from catalog.domain.services import CategoryService, ProductService
 from catalog.domain.value_objects import (
@@ -23,7 +26,9 @@ class AddProductDTO(BaseModel):
         measure: str = Field(min_length=2, max_length=64)
 
     company_id: int = Field(gt=0, examples=[1, 2])
-    name: str = Field(min_length=2, max_length=100, examples=["milk", "cheese"])
+    name: str = Field(
+        min_length=2, max_length=100, examples=["milk", "cheese"]
+    )
     article: str = Field(min_length=1, max_length=15, examples=["123456789"])
     barcode: str = Field(min_length=1, max_length=15, examples=["123456789"])
     price_internal: float = Field(gt=0, examples=[1.23])
@@ -42,13 +47,17 @@ class AddProductCommand:
     _uow: AbstractUnitOfWork
 
     def __init__(
-        self, product_service: ProductService, category_service: CategoryService
+        self,
+        product_service: ProductService,
+        category_service: CategoryService,
     ):
         self._product_service = product_service
         self._category_service = category_service
 
     async def __call__(self, data: AddProductDTO) -> Product:
-        category = await self._category_service.get_category_by_id(data.category_id)
+        category = await self._category_service.get_category_by_id(
+            data.category_id
+        )
         if not category:
             raise CategoryNotFoundError
         new_product = await self._product_service.create_product(

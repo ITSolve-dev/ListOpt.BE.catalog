@@ -9,6 +9,8 @@ categories_table = with_timestamp(
         mapper_registry.metadata,
         Column("id", Integer, primary_key=True),
         Column("name", String(50)),
-        Column("parent_id", Integer, ForeignKey("categories.id"), nullable=True),
+        Column(
+            "parent_id", Integer, ForeignKey("categories.id"), nullable=True
+        ),
     )
 )

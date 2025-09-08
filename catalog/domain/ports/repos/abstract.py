@@ -1,5 +1,5 @@
-from typing import AsyncIterator, Protocol, Optional, Sequence
 from abc import abstractmethod
+from typing import AsyncIterator, Optional, Protocol, Sequence
 
 
 class AbstractRepo[EntityT](Protocol):
@@ -10,7 +10,7 @@ class AbstractRepo[EntityT](Protocol):
     async def get_by_ids(self, ids: list[int]) -> Sequence[EntityT]: ...
 
     @abstractmethod
-    async def get(self, id: int) -> Optional[EntityT]: ...
+    async def get(self, id: int) -> EntityT | None: ...
 
     @abstractmethod
     async def list(self) -> AsyncIterator[EntityT]: ...
@@ -19,4 +19,6 @@ class AbstractRepo[EntityT](Protocol):
     async def count(self) -> int: ...
 
     @abstractmethod
-    async def paginate(self, page: int, page_size: int) -> Sequence[EntityT]: ...
+    async def paginate(
+        self, page: int, page_size: int
+    ) -> Sequence[EntityT]: ...
