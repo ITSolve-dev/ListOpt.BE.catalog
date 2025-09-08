@@ -1,0 +1,5 @@
+CART = "cart"
+PRODUCT = "product"
+CATEGORY = "category"
+PRODUCT_IN_CART = "product_in_cart"
+PRODUCT_FIELD = "product_field"

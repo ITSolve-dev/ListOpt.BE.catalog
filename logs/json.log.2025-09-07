@@ -1,0 +1,189 @@
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:23:00", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "DEBUG", "logger": "None.catalog.asyncio", "message": "Using selector: SelectSelector", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:23:03", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:04", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:04", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:05", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:05", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:47", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:48", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:23:58", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\main.py')}", "context": null}
+{"time": "2025-09-07 16:23:58", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "DEBUG", "logger": "None.catalog.asyncio", "message": "Using selector: SelectSelector", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:24:00", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "7 changes detected: {(<Change.deleted: 3>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\__pycache__\\\\main.cpython-313.pyc'), (<Change.deleted: 3>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\__pycache__\\\\main.cpython-313.pyc.2935935298864'), (<Change.added: 1>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\__pycache__\\\\main.cpython-313.pyc'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log'), (<Change.added: 1>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\__pycache__\\\\main.cpython-313.pyc.2935935298864'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\__pycache__')}", "context": null}
+{"time": "2025-09-07 16:24:02", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:24:02", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:25:22", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logger.yml')}", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:25:27", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "DEBUG", "logger": "None.catalog.asyncio", "message": "Using selector: SelectSelector", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:25:28", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:25:29", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:25:29", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log')}", "context": null}
+{"time": "2025-09-07 16:25:40", "level": "DEBUG", "logger": "None.catalog.watchfiles.main", "message": "1 change detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logger.yml')}", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "DEBUG", "logger": "None.catalog.asyncio", "message": "Using proactor: IocpProactor", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Started server process [27244]", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Waiting for application startup.", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Application startup complete.", "context": null}
+{"time": "2025-09-07 16:28:02", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)", "context": null}
+{"time": "2025-09-07 16:29:59", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Shutting down", "context": null}
+{"time": "2025-09-07 16:29:59", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Waiting for application shutdown.", "context": null}
+{"time": "2025-09-07 16:29:59", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Application shutdown complete.", "context": null}
+{"time": "2025-09-07 16:29:59", "level": "INFO", "logger": "None.catalog.uvicorn.error", "message": "Finished server process [27244]", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "DEBUG", "logger": "catalog.asyncio", "message": "Using proactor: IocpProactor", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Started server process [476]", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Waiting for application startup.", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Application startup complete.", "context": null}
+{"time": "2025-09-07 16:30:09", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)", "context": null}
+{"time": "2025-09-07 16:30:12", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Shutting down", "context": null}
+{"time": "2025-09-07 16:30:12", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Waiting for application shutdown.", "context": null}
+{"time": "2025-09-07 16:30:12", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Application shutdown complete.", "context": null}
+{"time": "2025-09-07 16:30:12", "level": "INFO", "logger": "catalog.uvicorn.error", "message": "Finished server process [476]", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:44:06", "level": "INFO", "logger": "catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "DEBUG", "logger": "catalog.asyncio", "message": "Using selector: SelectSelector", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "DEBUG", "logger": "catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log')}", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Model:", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "r.r: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p.p: sub, obj, act", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "e.e: some(where (p_eft == allow))", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "m.m: (p_sub == \"*\" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == \"*\" || r_act == p_act)", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g.g: _, _", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Policy:", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "g : _, _ : []", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.policy", "message": "Role links for: g", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "INFO", "logger": "catalog.casbin.role", "message": "", "context": null}
+{"time": "2025-09-07 16:44:07", "level": "DEBUG", "logger": "catalog.watchfiles.main", "message": "2 changes detected: {(<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\log.log'), (<Change.modified: 2>, 'C:\\\\Users\\\\bulga\\\\Projects\\\\ListOpt\\\\catalog-v2\\\\logs\\\\json.log')}", "context": null}
+{"time": "2025-09-07 16:44:15", "level": "INFO", "logger": "catalog.uvicorn.access", "message": "127.0.0.1:55690 - \"GET /docs HTTP/1.1\" 200", "context": null}
+{"time": "2025-09-07 16:44:17", "level": "INFO", "logger": "catalog.uvicorn.access", "message": "127.0.0.1:55690 - \"GET /openapi.json HTTP/1.1\" 200", "context": null}
