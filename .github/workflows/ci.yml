@@ -13,7 +13,7 @@ permissions:
   deployments: write
 
 jobs:
-  lint-format:
+  code:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
@@ -24,7 +24,7 @@ jobs:
         run: poetry run ruff check
       - name: Formatting
         run: poetry run ruff format --check
-  mypy:
+  type:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
@@ -43,18 +43,18 @@ jobs:
       - name: Unit tests
         run: poetry run pytest ./tests/unit
 
-  commit-lint-check:
+  commit:
     if: ${{ github.actor != 'dependabot[bot]' }}
     uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/commit-lint.yml@main
 
   build:
-    needs: [lint-format-mypy, commit-lint-check]
     runs-on: ubuntu-latest
     steps:
       - name: Docker build
         uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/check-docker-build.yml@main
 
   integration-tests:
+    needs: [unit, commit, type, code, build]
     runs-on: ubuntu-latest
     permissions:
       checks: write
