@@ -1,0 +1,35 @@
+.idea/
+
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.env
+.ruff_cache/
+.env.test
+.env.prod
+
+### VisualStudioCode ###
+.vscode/**/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+**/.history
+
+
+# log files (but not folder 'logs')
+*.log
+*.log.zip
+
+# tests
+coverage.xml
+htmlcov/
+.coverage
+junit.xml
+lcov.info
+cov-report/
+
+# venv
+venv/
+.venv/

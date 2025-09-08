@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  checks: write
+  contents: write
+  issues: write
+  pull-requests: write
+  deployments: write
+
+jobs:
+  lint-format-mypy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Poetry install
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/python/poetry-install@main
+        with:
+          python: 3.13.1
+      - name: Lint
+        run: poetry run ruff check
+      - name: Formatting
+        run: poetry run ruff format --check
+      - name: Type check
+        run: poetry run mypy
+      - name: Unit tests
+        run: poetry run pytest ./tests/unit
+
+  commit-lint-check:
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/common/commit-lint.yml@main
+
+  build:
+    needs: [lint-format-mypy, commit-lint-check]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker build
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/deploy/check-docker-build.yml@main
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: write
+      issues: write
+      pull-requests: write
+    env:
+      MODE: test
+      TEST_RUN_WORKERS: 4
+      DATABASE__USER: postgres
+      DATABASE__PASSWORD: postgres
+      DATABASE__NAME: db
+      PERMISSIONS__MOCK_POLICY: true
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: db
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - name: Poetry install
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/python/poetry-install@main
+        with:
+          python: 3.13.1
+      # - name: Run tests
+      #   run: |
+      #     poetry run poe test-coverage-fast
+      # - name: Upload coverage
+      #   uses: 3kdPortal/3kd/.github/actions/coverage@main
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     coverage-dir: ./cov-report

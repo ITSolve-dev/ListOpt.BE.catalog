@@ -1,0 +1,9 @@
+name: Cleanup caches by a branch
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  cleanup:
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/common/clean-cache.yml@main

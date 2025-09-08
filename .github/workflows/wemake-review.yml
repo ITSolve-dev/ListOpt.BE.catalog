@@ -1,0 +1,16 @@
+name: Wemake review
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  checks: write
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  wemake-review:
+    uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/common/wemake-review.yml@main

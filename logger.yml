@@ -1,0 +1,61 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  default:
+    (): catalog.infrastructure.logger.DefaultFormatter
+    datefmt: "%Y-%m-%d %H:%M:%S"
+    prefix: catalog
+    log_fmt: "%(asctime)s |%(levelname)s| [%(name)s] (%(module)s:%(lineno)d) - %(message)s"
+  color:
+    (): catalog.infrastructure.logger.ColorFormatter
+    datefmt: "%Y-%m-%d %H:%M:%S"
+    prefix: catalog
+    log_fmt: "%(asctime)s |%(levelname)s| [%(name)s] (%(module)s:%(lineno)d) - %(message)s"
+  json:
+    (): catalog.infrastructure.logger.JSONFormatter
+    datefmt: "%Y-%m-%d %H:%M:%S"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: color
+  debug_file:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: default
+    level: DEBUG
+    filename: logs/log.log
+    when: midnight
+    interval: 1
+    backupCount: 7
+    encoding: utf-8
+  warning_file:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: default
+    level: WARNING
+    filename: logs/warning_log.log
+    when: midnight
+    interval: 1
+    backupCount: 5
+    encoding: utf-8
+  json_file:
+    class: logging.handlers.TimedRotatingFileHandler
+    formatter: json
+    level: DEBUG
+    filename: logs/json.log
+    when: midnight
+    interval: 1
+    backupCount: 7
+    encoding: utf-8
+loggers:
+  "":
+    level: DEBUG
+    handlers: [console, debug_file, warning_file, json_file]
+  uvicorn:
+    level: INFO
+    handlers: [console, debug_file, warning_file, json_file]
+  uvicorn.access:
+    level: INFO
+    handlers: [console, debug_file, warning_file, json_file]
+  uvicorn.error:
+    level: ERROR
+    handlers: [console, debug_file, warning_file, json_file]

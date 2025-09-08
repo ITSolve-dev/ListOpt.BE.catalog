@@ -1,0 +1,5 @@
+DOMAIN = "domain"
+INFRASTRUCTURE = "infra"
+APPLICATION = "app"
+PRESENTATION = "api"
+GENERAL = "general"
