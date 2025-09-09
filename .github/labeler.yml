@@ -1,0 +1,10 @@
+feature:
+  - head-branch: ["^feature/"]
+
+bug:
+  - head-branch: ["^bug/"]
+
+tests:
+  - all:
+      - changed-files:
+          - any-glob-to-any-file: "tests/**/*"
