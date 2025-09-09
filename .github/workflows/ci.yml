@@ -58,7 +58,7 @@ jobs:
         uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/check-docker-build@main
 
   integration-tests:
-    needs: [unit, commit, type, lint-format, build]
+    needs: [unit-tests, commits, typing, lint-format, docker-build]
     runs-on: ubuntu-latest
     permissions:
       checks: write
