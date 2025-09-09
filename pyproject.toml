@@ -36,11 +36,38 @@ pytest-xdist = "^3.8.0"
 vulture = "^2.14"
 
 [tool.pytest.ini_options]
-addopts = "-ra -q -v --import-mode=importlib --cov-report html:cov-report/htmlcov --cov-report lcov:cov-report/lcov.info --cov-report xml:cov-report/coverage.xml --cov-report term-missing:skip-covered"
+addopts = "-ra -q -v --import-mode=importlib --cov-report html:coverage/htmlcov --cov-report lcov:coverage/lcov.info --cov-report xml:coverage/coverage.xml --cov-report term-missing:skip-covered"
 pythonpath = "."
 testpaths = ["tests"]
 filterwarnings = ["ignore::DeprecationWarning"]
 asyncio_mode = "auto"
+
+# https://coverage.readthedocs.io/en/latest/config.html
+[tool.coverage.run]
+branch = true
+parallel = true
+concurrency = ["multiprocessing", "thread"]
+
+[tool.coverage.report]
+include = ["catalog/*"]
+# Regexes for lines to exclude from consideration
+exclude_also = [
+	# Don't complain about missing debug-only code:
+	"def __repr__",
+	"if self\\.debug",
+
+	# Don't complain if tests don't hit defensive assertion code:
+	"raise AssertionError",
+	"raise NotImplementedError",
+
+	# Don't complain if non-runnable code isn't run:
+	"if 0:",
+	"if __name__ == .__main__.:",
+
+	# Don't complain about abstract methods, they aren't run:
+	"@(abc\\.)?abstractmethod",
+]
+ignore_errors = true
 
 [tool.vulture]
 exclude = ["*file*.py", "dir/"]
@@ -175,34 +202,6 @@ init_forbid_extra = true
 init_typed = true
 warn_required_dynamic_aliases = true
 warn_untyped_fields = true
-
-# https://coverage.readthedocs.io/en/latest/config.html
-[tool.coverage.run]
-branch = true
-parallel = true
-concurrency = ["multiprocessing", "thread"]
-
-[tool.coverage.report]
-include = ["src/*"]
-# Regexes for lines to exclude from consideration
-exclude_also = [
-	# Don't complain about missing debug-only code:
-	"def __repr__",
-	"if self\\.debug",
-
-	# Don't complain if tests don't hit defensive assertion code:
-	"raise AssertionError",
-	"raise NotImplementedError",
-
-	# Don't complain if non-runnable code isn't run:
-	"if 0:",
-	"if __name__ == .__main__.:",
-
-	# Don't complain about abstract methods, they aren't run:
-	"@(abc\\.)?abstractmethod",
-]
-
-ignore_errors = true
 
 [tool.bandit]
 exclude_dirs = [

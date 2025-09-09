@@ -29,6 +29,7 @@ htmlcov/
 junit.xml
 lcov.info
 cov-report/
+coverage/
 
 # venv
 venv/

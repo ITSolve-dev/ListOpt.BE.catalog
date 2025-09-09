@@ -23,6 +23,8 @@ docs/
 scripts/
 logs/
 cov-report/
+coverage/
+.coverage
 
 venv/
 .venv/

@@ -24,7 +24,7 @@ jobs:
         run: poetry run ruff check
       - name: Formatting
         run: poetry run ruff format --check
-  type:
+  typing:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
@@ -33,7 +33,7 @@ jobs:
           python: 3.13.1
       - name: Type check
         run: poetry run mypy
-  unit:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
@@ -41,13 +41,17 @@ jobs:
         with:
           python: 3.13.1
       - name: Unit tests
-        run: poetry run pytest ./tests/unit
+        run: poetry run pytest ./tests/unit --cov=catalog
+      - name: Coverage report
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/coverage@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-  commit:
+  commits:
     if: ${{ github.actor != 'dependabot[bot]' }}
     uses: ITSolve-dev/BackOffice.GitHubActions/.github/workflows/commit-lint.yml@main
 
-  build:
+  docker-build:
     runs-on: ubuntu-latest
     steps:
       - name: Docker build
