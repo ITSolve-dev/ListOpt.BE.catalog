@@ -1,6 +1,7 @@
 from typing import Protocol
 
-from ...entities import Category
+from catalog.domain.entities import Category
+
 from .abstract import AbstractRepo
 
 

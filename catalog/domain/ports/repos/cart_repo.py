@@ -1,6 +1,7 @@
 from typing import Protocol
 
-from ...entities import Cart
+from catalog.domain.entities import Cart
+
 from .abstract import AbstractRepo
 
 

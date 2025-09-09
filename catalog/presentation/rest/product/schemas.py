@@ -1,10 +1,14 @@
 import json
+from typing import Any
 
 from pydantic import Field, model_validator
 
 from catalog.domain.entities.product import Product
-
-from .._base_schemas import PaginateResponse, RequestSchema, SuccessResponse
+from catalog.presentation.rest._base_schemas import (
+    PaginateResponse,
+    RequestSchema,
+    SuccessResponse,
+)
 
 
 class GetProductByIDResponse(SuccessResponse):
@@ -37,7 +41,7 @@ class AddProductRequest(RequestSchema):
 
     @model_validator(mode="before")
     @classmethod
-    def validate_to_json(cls, value):
+    def validate_to_json(cls, value: str | Any) -> "AddProductRequest":
         if isinstance(value, str):
             return cls(**json.loads(value))
         return value

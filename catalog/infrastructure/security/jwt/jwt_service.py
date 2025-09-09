@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
-from .._base import Payload
+from catalog.infrastructure.security._base import Payload
+
 from .jwt_decoder import JwtDecoder
 from .jwt_encoder import JwtEncoder
 
@@ -10,7 +11,7 @@ class JwtService[SchemaType: BaseModel = Payload]:
         self,
         jwt_decoder: JwtDecoder[SchemaType],
         jwt_encoder: JwtEncoder[SchemaType],
-    ):
+    ) -> None:
         self.__jwt_decoder = jwt_decoder
         self.__jwt_encoder = jwt_encoder
 

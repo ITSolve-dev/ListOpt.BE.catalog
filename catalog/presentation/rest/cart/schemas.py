@@ -1,8 +1,10 @@
 from pydantic import Field
 
 from catalog.domain.entities import Cart
-
-from .._base_schemas import RequestSchema, SuccessResponse
+from catalog.presentation.rest._base_schemas import (
+    RequestSchema,
+    SuccessResponse,
+)
 
 
 class GetMyCartResponse(SuccessResponse):

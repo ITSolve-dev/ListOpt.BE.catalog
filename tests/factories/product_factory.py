@@ -4,7 +4,6 @@ from factory.base import Factory
 from factory.declarations import (
     LazyAttribute,
     LazyFunction,
-    Sequence,
     SubFactory,
 )
 
@@ -37,7 +36,7 @@ class ProductFactory(TimestampMixin, Factory[Product]):
     class Meta:  # type: ignore
         model = Product
 
-    id = Sequence(lambda n: n + 1)
+    id = IDSequence
     company_id = ValueObjectIntSequence(CompanyID)
     name = LazyFunction(lambda: ProductName(faker.name()))
     identifier = SubFactory(ProductIdentifierFactory)

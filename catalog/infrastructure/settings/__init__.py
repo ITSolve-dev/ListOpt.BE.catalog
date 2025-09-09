@@ -1,6 +1,7 @@
 from functools import cache
 from typing import Literal
 
+from dotenv import load_dotenv
 from pydantic import Field, computed_field
 from pydantic_settings import (
     BaseSettings,
@@ -55,6 +56,9 @@ class ServerSettings(BaseSettings):
         return (
             init_settings,
             YamlConfigSettingsSource(settings_cls),
+            dotenv_settings,
+            env_settings,
+            file_secret_settings,
         )
 
 
@@ -75,7 +79,13 @@ class ProjectSettings(BaseSettings):
         dotenv_settings: PydanticBaseSettingsSource,
         file_secret_settings: PydanticBaseSettingsSource,
     ) -> tuple[PydanticBaseSettingsSource, ...]:
-        return (PyprojectTomlConfigSettingsSource(settings_cls),)
+        return (
+            init_settings,
+            PyprojectTomlConfigSettingsSource(settings_cls),
+            dotenv_settings,
+            env_settings,
+            file_secret_settings,
+        )
 
 
 class JwtSettings(BaseSettings):
@@ -179,7 +189,7 @@ class DatabaseSettings(BaseSettings):
     pool_size: int = Field(default=10, description="Database pool size")
     max_overflow: int = Field(default=5, description="Database max overflow")
 
-    @computed_field
+    @computed_field  # type: ignore[prop-decorator]
     @property
     def URL(self) -> str:  # noqa: N802
         return f"postgresql+asyncpg://{self.USER}:{self.PASSWORD}@{self.HOST}:{self.PORT}/{self.NAME}"
@@ -217,7 +227,5 @@ class Settings(BaseSettings):
 
 @cache
 def get_settings() -> Settings:
-    from dotenv import load_dotenv
-
     load_dotenv()
     return Settings()

@@ -1,0 +1,189 @@
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:23:00 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:23:00 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:23:03 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:23:03 |DEBUG| [catalog.asyncio] (selector_events:64) - Using selector: SelectSelector
+2025-09-07 16:23:03 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:23:03 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:23:03 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:23:03 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:04 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:04 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:05 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:05 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:47 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:48 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:23:58 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\main.py')}
+2025-09-07 16:23:58 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:24:00 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:24:00 |DEBUG| [catalog.asyncio] (selector_events:64) - Using selector: SelectSelector
+2025-09-07 16:24:00 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:24:00 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:24:00 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:24:00 |DEBUG| [catalog.watchfiles.main] (main:306) - 7 changes detected: {(<Change.deleted: 3>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\__pycache__\\main.cpython-313.pyc'), (<Change.deleted: 3>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\__pycache__\\main.cpython-313.pyc.2935935298864'), (<Change.added: 1>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\__pycache__\\main.cpython-313.pyc'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log'), (<Change.added: 1>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\__pycache__\\main.cpython-313.pyc.2935935298864'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\__pycache__')}
+2025-09-07 16:24:02 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:24:02 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:25:22 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logger.yml')}
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:25:27 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:25:27 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:25:28 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:25:28 |DEBUG| [catalog.asyncio] (selector_events:64) - Using selector: SelectSelector
+2025-09-07 16:25:28 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:25:28 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:25:28 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:25:28 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:25:29 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:25:29 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log')}
+2025-09-07 16:25:40 |DEBUG| [catalog.watchfiles.main] (main:306) - 1 change detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logger.yml')}
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:28:02 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:28:02 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:28:02 |DEBUG| [catalog.asyncio] (proactor_events:631) - Using proactor: IocpProactor
+2025-09-07 16:28:02 |INFO| [catalog.uvicorn.error] (server:84) - Started server process [27244]
+2025-09-07 16:28:02 |INFO| [catalog.uvicorn.error] (on:48) - Waiting for application startup.
+2025-09-07 16:28:02 |INFO| [catalog.uvicorn.error] (on:62) - Application startup complete.
+2025-09-07 16:28:02 |INFO| [catalog.uvicorn.error] (server:216) - Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-09-07 16:29:59 |INFO| [catalog.uvicorn.error] (server:264) - Shutting down
+2025-09-07 16:29:59 |INFO| [catalog.uvicorn.error] (on:67) - Waiting for application shutdown.
+2025-09-07 16:29:59 |INFO| [catalog.uvicorn.error] (on:76) - Application shutdown complete.
+2025-09-07 16:29:59 |INFO| [catalog.uvicorn.error] (server:94) - Finished server process [27244]
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:30:09 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:30:09 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:30:09 |DEBUG| [catalog.asyncio] (proactor_events:631) - Using proactor: IocpProactor
+2025-09-07 16:30:09 |INFO| [catalog.uvicorn.error] (server:84) - Started server process [476]
+2025-09-07 16:30:09 |INFO| [catalog.uvicorn.error] (on:48) - Waiting for application startup.
+2025-09-07 16:30:09 |INFO| [catalog.uvicorn.error] (on:62) - Application startup complete.
+2025-09-07 16:30:09 |INFO| [catalog.uvicorn.error] (server:216) - Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+2025-09-07 16:30:12 |INFO| [catalog.uvicorn.error] (server:264) - Shutting down
+2025-09-07 16:30:12 |INFO| [catalog.uvicorn.error] (on:67) - Waiting for application shutdown.
+2025-09-07 16:30:12 |INFO| [catalog.uvicorn.error] (on:76) - Application shutdown complete.
+2025-09-07 16:30:12 |INFO| [catalog.uvicorn.error] (server:94) - Finished server process [476]
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:44:06 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:44:06 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:44:07 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:44:07 |DEBUG| [catalog.asyncio] (selector_events:64) - Using selector: SelectSelector
+2025-09-07 16:44:07 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log')}
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:112) - Model:
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - r.r: sub, obj, act
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - p.p: sub, obj, act
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - e.e: some(where (p_eft == allow))
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - m.m: (p_sub == "*" || g(r_sub, p_sub)) && (r_obj == p_obj || keyMatch(r_obj, p_obj)) && (p_act == "*" || r_act == p_act)
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (model:115) - g.g: _, _
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (policy:73) - Policy:
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (policy:79) - p : sub, obj, act : [['*', '/health', 'GET'], ['*', '/categories', 'GET'], ['supplier', '/products', 'GET'], ['buyer', '/carts', 'GET']]
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (policy:79) - g : _, _ : []
+2025-09-07 16:44:07 |INFO| [catalog.casbin.policy] (assertion:48) - Role links for: g
+2025-09-07 16:44:07 |INFO| [catalog.casbin.role] (role_manager:218) - 
+2025-09-07 16:44:07 |DEBUG| [catalog.watchfiles.main] (main:306) - 2 changes detected: {(<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\log.log'), (<Change.modified: 2>, 'C:\\Users\\bulga\\Projects\\ListOpt\\catalog-v2\\logs\\json.log')}
+2025-09-07 16:44:15 |INFO| [catalog.uvicorn.access] (httptools_impl:476) - 127.0.0.1:55690 - "GET /docs HTTP/1.1" 200
+2025-09-07 16:44:17 |INFO| [catalog.uvicorn.access] (httptools_impl:476) - 127.0.0.1:55690 - "GET /openapi.json HTTP/1.1" 200

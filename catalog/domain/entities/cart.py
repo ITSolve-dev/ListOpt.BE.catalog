@@ -1,5 +1,3 @@
-from typing import cast
-
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
@@ -37,16 +35,16 @@ class Cart(Entity):
         diff = set(products) - set(self.products)
         if len(diff) != len(set(products)):
             raise CartAlreadyHaveProductsError(
-                ctx=dict(ids=[product.id for product in diff])
+                ctx={"ids": [product.id for product in diff]}
             )
         self.products.extend(products)
 
     def remove_products(self, products: list[Product]) -> None:
-        cart_products = set([product.product for product in self.products])
+        cart_products = {product.product for product in self.products}
         diff = set(products) - set(cart_products)
         if diff != set():
             raise CartNotFoundProductsError(
-                ctx=dict(ids=[product.id for product in diff]),
+                ctx={"ids": [product.id for product in diff]},
                 description="No such products for remove in cart",
             )
         self.products = [

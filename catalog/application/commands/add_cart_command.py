@@ -3,7 +3,7 @@ from catalog.domain.services.cart_service import CartService
 
 
 class AddCartCommand:
-    def __init__(self, cart_service: CartService):
+    def __init__(self, cart_service: CartService) -> None:
         self.cart_service = cart_service
 
     async def execute(self, user_id: int) -> Cart:

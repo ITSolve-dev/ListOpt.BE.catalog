@@ -7,5 +7,5 @@ class Runner:
     def __init__(self, http_app: ExecutableProtocol) -> None:
         self._http_app = http_app
 
-    def run(self):
+    def run(self) -> None:
         self._http_app.run()

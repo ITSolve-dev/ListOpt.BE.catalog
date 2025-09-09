@@ -1,5 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
+from types import TracebackType
 from typing import Self
 
 from .repos import CartRepo, CategoryRepo, ProductRepo
@@ -16,13 +17,18 @@ class AbstractUnitOfWork(ABC):
         logger.info("Entering unit of work")
         return self
 
-    async def __aexit__(self, exc_type, exc_val, exc_tb):
+    async def __aexit__(
+        self,
+        exc_type: type[Exception],
+        exc_val: Exception,
+        exc_tb: TracebackType,
+    ) -> None:
         await self.commit()
 
     @abstractmethod
-    async def commit(self):
+    async def commit(self) -> None:
         raise NotImplementedError
 
     @abstractmethod
-    async def rollback(self):
+    async def rollback(self) -> None:
         raise NotImplementedError

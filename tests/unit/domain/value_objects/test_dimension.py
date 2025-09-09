@@ -1,6 +1,8 @@
 from contextlib import nullcontext
+from typing import ContextManager
 
 import pytest
+from pydantic import ValidationError
 
 from catalog.domain.value_objects import Dimension
 
@@ -10,23 +12,30 @@ class TestDimension:
         assert dimension
 
     @pytest.mark.parametrize(
-        "width, height, weight, depth, expected",
+        ("width", "height", "weight", "depth", "expected"),
         [
             (1, 2, 3, 4, nullcontext()),
             (5, 6, 7, 8, nullcontext()),
             (9, 10, 11, 12, nullcontext()),
-            (-1, 10, 11, 12, pytest.raises(ValueError)),
-            (1, -1, 3, 4, pytest.raises(ValueError)),
-            (1, 1, -3, 4, pytest.raises(ValueError)),
-            (1, 1, 3, -4, pytest.raises(ValueError)),
-            (-1, 1, 3, -4, pytest.raises(ValueError)),
-            (-1, -1, 3, -4, pytest.raises(ValueError)),
-            (-1, -1, -3, -4, pytest.raises(ValueError)),
-            (1, -1, -3, -4, pytest.raises(ValueError)),
-            (1, 1, -3, -4, pytest.raises(ValueError)),
+            (-1, 10, 11, 12, pytest.raises(ValidationError)),
+            (1, -1, 3, 4, pytest.raises(ValidationError)),
+            (1, 1, -3, 4, pytest.raises(ValidationError)),
+            (1, 1, 3, -4, pytest.raises(ValidationError)),
+            (-1, 1, 3, -4, pytest.raises(ValidationError)),
+            (-1, -1, 3, -4, pytest.raises(ValidationError)),
+            (-1, -1, -3, -4, pytest.raises(ValidationError)),
+            (1, -1, -3, -4, pytest.raises(ValidationError)),
+            (1, 1, -3, -4, pytest.raises(ValidationError)),
         ],
     )
-    def test_dimension_validate(self, width, height, weight, depth, expected):
+    def test_dimension_validate(
+        self,
+        width: float,
+        height: float,
+        weight: float,
+        depth: float,
+        expected: ContextManager[None],
+    ):
         with expected:
             Dimension(width=width, height=height, weight=weight, depth=depth)
 

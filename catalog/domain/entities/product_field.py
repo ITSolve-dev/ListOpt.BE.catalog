@@ -1,7 +1,8 @@
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
-from ..value_objects import PositiveInt
+from catalog.domain.value_objects import PositiveInt
+
 from .entity import Entity
 
 

@@ -10,7 +10,7 @@ QuantityInt = int
 class AddProductsToCartCommand:
     def __init__(
         self, cart_service: CartService, product_service: ProductService
-    ):
+    ) -> None:
         self._cart_service = cart_service
         self._product_service = product_service
 

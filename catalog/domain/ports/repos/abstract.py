@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import AsyncIterator, Optional, Protocol, Sequence
+from typing import AsyncIterator, Protocol, Sequence
 
 
 class AbstractRepo[EntityT](Protocol):

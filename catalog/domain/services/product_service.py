@@ -1,8 +1,8 @@
 from typing import Sequence
 
-from ..entities import Category, Product, ProductField
-from ..ports.uow import AbstractUnitOfWork
-from ..value_objects import (
+from catalog.domain.entities import Category, Product, ProductField
+from catalog.domain.ports.uow import AbstractUnitOfWork
+from catalog.domain.value_objects import (
     CompanyID,
     Dimension,
     PositiveInt,
@@ -12,23 +12,12 @@ from ..value_objects import (
     ProductPhoto,
 )
 
-# Добавить товары в корзину POST /carts/products
-# Удалить товары из корзины DELETE /carts/products
-# Изменять количество товара в корзине POST /carts/products/{id}
-# Получить корзину пользователя GET /carts/me
-# Создать корзину пользователя POST /carts
-# Получить товар по id GET /products/{id}
-# Добавить товар POST /products
-# Редактировать товар PUT(PATCH) /products/{id}
-# Фильтровать товары получить список + пагинация GET /products?query=<query>
-# Получить категории GET /categories
-
 
 class ProductService:
-    def __init__(self, uow: AbstractUnitOfWork):
+    def __init__(self, uow: AbstractUnitOfWork) -> None:
         self._uow = uow
 
-    async def create_product(
+    async def create_product(  # noqa: PLR0913
         self,
         *,
         company_id: CompanyID,
@@ -57,8 +46,6 @@ class ProductService:
         async with self._uow:
             await self._uow.product_repo.save(product)
         return product
-
-    async def filter_products(self, *args, **kwargs) -> list[Product]: ...
 
     async def get_by_id(self, product_id: int) -> Product | None:
         async with self._uow:

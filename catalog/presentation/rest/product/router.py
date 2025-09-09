@@ -1,3 +1,5 @@
+from typing import Annotated
+
 from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Body, Depends, File, Query, UploadFile
 
@@ -5,8 +7,8 @@ from catalog.application.commands.add_product_command import (
     AddProductCommand,
     AddProductDTO,
 )
-from catalog.application.queries.get_product_query import GetProductQuery
-from catalog.application.queries.paginate_products_query import (
+from catalog.application.queries import (
+    GetProductQuery,
     PaginateProductsQuery,
 )
 
@@ -21,14 +23,22 @@ from .schemas import (
 
 product_router = APIRouter(prefix="/products", tags=["Products"])
 
+GetProduct = Annotated[GetProductQuery, Depends(Provide["get_product_query"])]
+AddProduct = Annotated[
+    AddProductCommand, Depends(Provide["add_product_command"])
+]
+PaginateProducts = Annotated[
+    PaginateProductsQuery, Depends(Provide["paginate_products_query"])
+]
+
 
 @product_router.get("/{product_id}")
 @inject
 async def get_product_by_id(
     product_id: int,
-    get_product_query: GetProductQuery = Depends(Provide["get_product_query"]),
+    get_product: GetProduct,
 ) -> GetProductByIDResponse:
-    product = await get_product_query(product_id)
+    product = await get_product(product_id)
     if not product:
         raise ValueError
     return GetProductByIDResponse(product=product)
@@ -37,13 +47,11 @@ async def get_product_by_id(
 @product_router.post("")
 @inject
 async def add_product(
+    add_product: AddProduct,
     data: AddProductRequest = Body(...),
-    photo: UploadFile = File(...),
-    add_product_command: AddProductCommand = Depends(
-        Provide["add_product_command"]
-    ),
+    _: UploadFile = File(...),
 ) -> AddProductResponse:
-    product = await add_product_command(
+    product = await add_product(
         AddProductDTO.model_validate(data.model_dump())
     )
     return AddProductResponse(product=product)
@@ -53,19 +61,17 @@ async def add_product(
 @inject
 async def edit_product(
     product_id: int,
-    data: EditProductRequest,
+    _: EditProductRequest,
 ) -> EditProductResponse:
-    return EditProductResponse()
+    return EditProductResponse(info=f"{product_id} Coming Soon")
 
 
 @product_router.get("")
 @inject
 async def paginate_products(
+    paginate_products: PaginateProducts,
     page: int = Query(1, ge=1),
     page_size: int = Query(10, ge=1, le=1000, alias="pageSize"),
-    paginate_products_query: PaginateProductsQuery = Depends(
-        Provide["paginate_products_query"]
-    ),
 ) -> PaginateProductsResponse:
-    result = await paginate_products_query(page=page, page_size=page_size)
+    result = await paginate_products(page=page, page_size=page_size)
     return PaginateProductsResponse.model_validate(result)

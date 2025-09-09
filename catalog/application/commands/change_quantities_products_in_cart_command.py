@@ -4,7 +4,7 @@ from catalog.domain.services import CartService
 
 
 class ChangeQuantitiesProductsInCartCommand:
-    def __init__(self, cart_service: CartService):
+    def __init__(self, cart_service: CartService) -> None:
         self._cart_service = cart_service
 
     async def execute(

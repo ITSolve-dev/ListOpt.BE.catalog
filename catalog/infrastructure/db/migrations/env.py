@@ -6,7 +6,7 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from catalog.infrastructure.db.orm import mapper_registry
+from catalog.infrastructure.db.tables import mapper_registry
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

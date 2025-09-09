@@ -1,11 +1,10 @@
 import logging
-import logging.config
 from typing import Any
 
 import casbin
 from pydantic import BaseModel
 
-from .._base import BaseUser
+from catalog.infrastructure.security._base import BaseUser
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +16,7 @@ class PermissionsConfig(BaseModel):
 
 
 class PermissionService:
-    def __init__(self, config: dict[str, Any]):
+    def __init__(self, config: dict[str, Any]) -> None:
         self._config = PermissionsConfig.model_validate(config)
         self.enforcer = casbin.Enforcer(
             self._config.model,

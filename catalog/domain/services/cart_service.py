@@ -1,15 +1,18 @@
+from catalog.domain.entities import Cart
 from catalog.domain.entities.product import Product
 from catalog.domain.entities.product_in_cart import ProductInCart
+from catalog.domain.exceptions import (
+    CartAlreadyExistsError,
+    CartGetError,
+    CartSaveError,
+)
+from catalog.domain.ports.uow import AbstractUnitOfWork
+from catalog.domain.value_objects import UserID
 from catalog.domain.value_objects.quantity import Quantity
-
-from ..entities import Cart
-from ..exceptions import CartAlreadyExistsError, CartGetError, CartSaveError
-from ..ports.uow import AbstractUnitOfWork
-from ..value_objects import UserID
 
 
 class CartService:
-    def __init__(self, uow: AbstractUnitOfWork):
+    def __init__(self, uow: AbstractUnitOfWork) -> None:
         self._uow = uow
 
     async def get_cart(self, user_id: int) -> Cart | None:
@@ -46,9 +49,9 @@ class CartService:
         return cart
 
     async def remove_products(
-        self, cart: Cart, product_ids: list[int]
+        self, cart: Cart, products: list[Product]
     ) -> Cart:
-        cart.remove_products(product_ids)
+        cart.remove_products(products)
         async with self._uow:
             await self._uow.cart_repo.save(cart)
         return cart

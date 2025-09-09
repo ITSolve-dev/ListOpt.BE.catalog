@@ -50,7 +50,7 @@ class AddProductCommand:
         self,
         product_service: ProductService,
         category_service: CategoryService,
-    ):
+    ) -> None:
         self._product_service = product_service
         self._category_service = category_service
 

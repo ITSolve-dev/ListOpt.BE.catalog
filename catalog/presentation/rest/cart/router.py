@@ -1,17 +1,15 @@
+from typing import Annotated
+
 from dependency_injector.wiring import Provide, inject
 from fastapi import APIRouter, Depends, status
 
-from catalog.application.commands.add_cart_command import AddCartCommand
-from catalog.application.commands.add_products_to_cart_command import (
+from catalog.application.commands import (
+    AddCartCommand,
     AddProductsToCartCommand,
-)
-from catalog.application.commands.change_quantities_products_in_cart_command import (
     ChangeQuantitiesProductsInCartCommand,
-)
-from catalog.application.commands.remove_products_from_cart_command import (
     RemoveProductsFromCartCommand,
 )
-from catalog.application.queries.get_cart_by_user_query import (
+from catalog.application.queries import (
     GetCartByUserQuery,
 )
 from catalog.domain.exceptions import CartNotFoundError
@@ -30,16 +28,30 @@ from .schemas import (
 
 cart_router = APIRouter(prefix="/carts", tags=["Carts"])
 
+GetCartByUser = Annotated[
+    GetCartByUserQuery, Depends(Provide["get_cart_by_user_query"])
+]
+AddProductsToCart = Annotated[
+    AddProductsToCartCommand, Depends(Provide["add_products_to_cart_command"])
+]
+RemoveProductsFromCart = Annotated[
+    RemoveProductsFromCartCommand,
+    Depends(Provide["remove_products_from_cart_command"]),
+]
+ChangeQuantitiesProducts = Annotated[
+    ChangeQuantitiesProductsInCartCommand,
+    Depends(Provide["change_quantities_products_in_cart_command"]),
+]
+AddCart = Annotated[AddCartCommand, Depends(Provide["add_cart_command"])]
+
 
 @cart_router.get("/me")
 @inject
 async def get_my_cart(
     user: UserDep,
-    get_cart_by_user_query: GetCartByUserQuery = Depends(
-        Provide["get_cart_by_user_query"]
-    ),
+    get_cart_by_user: GetCartByUser,
 ) -> GetMyCartResponse:
-    cart = await get_cart_by_user_query(user.id)
+    cart = await get_cart_by_user(user.id)
     if not cart:
         raise CartNotFoundError
     return GetMyCartResponse(cart=cart)
@@ -50,11 +62,9 @@ async def get_my_cart(
 async def add_products_to_cart(
     user: UserDep,
     data: AddProductsToCartRequest,
-    add_products_to_cart_command: AddProductsToCartCommand = Depends(
-        Provide["add_products_to_cart_command"]
-    ),
+    add_products_to_cart: AddProductsToCart,
 ) -> AddProductsToCartResponse:
-    cart = await add_products_to_cart_command.execute(
+    cart = await add_products_to_cart.execute(
         user.id, [(d.product_id, d.quantity) for d in data]
     )
     return AddProductsToCartResponse(cart=cart)
@@ -65,13 +75,9 @@ async def add_products_to_cart(
 async def delete_products_from_cart(
     user: UserDep,
     data: DeleteProductsFromCartRequest,
-    remove_products_from_cart_command: RemoveProductsFromCartCommand = Depends(
-        Provide["remove_products_from_cart_command"]
-    ),
+    remove_products_from_cart: RemoveProductsFromCart,
 ) -> DeleteProductsFromCartResponse:
-    cart = await remove_products_from_cart_command.execute(
-        user.id, data.product_ids
-    )
+    cart = await remove_products_from_cart.execute(user.id, data.product_ids)
     return DeleteProductsFromCartResponse(cart=cart)
 
 
@@ -80,9 +86,7 @@ async def delete_products_from_cart(
 async def change_quantities_of_products(
     user: UserDep,
     data: ChangeQuantitiesProductsRequest,
-    change_quantities_products_in_cart: ChangeQuantitiesProductsInCartCommand = Depends(
-        Provide["change_quantities_products_in_cart"]
-    ),
+    change_quantities_products_in_cart: ChangeQuantitiesProducts,
 ) -> ChangeQuantitiesProductsResponse:
     cart = await change_quantities_products_in_cart.execute(
         user.id, [(d.product_id, d.quantity) for d in data]
@@ -94,7 +98,7 @@ async def change_quantities_of_products(
 @inject
 async def create_cart(
     user: UserDep,
-    add_cart_command: AddCartCommand = Depends(Provide["add_cart_command"]),
+    add_cart: AddCart,
 ) -> CreateCartResponse:
-    cart = await add_cart_command.execute(user.id)
+    cart = await add_cart.execute(user.id)
     return CreateCartResponse(cart=cart)

@@ -17,12 +17,12 @@ class JWTBearerSecurity(HTTPBearer):
         *,
         jwt_decoder: JwtDecoder[PayloadSchema],
         permission_service: PermissionService,
-        bearerFormat: str = "Bearer",
+        bearer_format: str = "Bearer",
         scheme_name: str = "JWT Bearer",
         description: str = "Authentication and authorization provider",
-    ):
+    ) -> None:
         super().__init__(
-            bearerFormat=bearerFormat,
+            bearerFormat=bearer_format,
             scheme_name=scheme_name,
             description=description,
             auto_error=False,

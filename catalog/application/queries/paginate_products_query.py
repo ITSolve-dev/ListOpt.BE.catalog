@@ -15,7 +15,7 @@ class PaginatedProducts(BaseModel):
 
 
 class PaginateProductsQuery:
-    def __init__(self, uow: AbstractUnitOfWork):
+    def __init__(self, uow: AbstractUnitOfWork) -> None:
         self.uow = uow
 
     async def __call__(

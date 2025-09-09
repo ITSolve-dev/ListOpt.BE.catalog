@@ -3,7 +3,7 @@ from typing import Annotated
 from pydantic import AfterValidator, Field, HttpUrl
 from pydantic.dataclasses import dataclass
 
-from ..value_objects import (
+from catalog.domain.value_objects import (
     CompanyID,
     Dimension,
     PositiveInt,
@@ -12,6 +12,7 @@ from ..value_objects import (
     ProductName,
     ProductPhoto,
 )
+
 from .category import Category
 from .entity import Entity
 from .product_field import ProductField
@@ -43,7 +44,7 @@ class Product(Entity):
         return self.identifier == other.identifier
 
     @classmethod
-    def create(
+    def create(  # noqa: PLR0913
         cls,
         *,
         company_id: CompanyID,

@@ -1,9 +1,7 @@
-from typing import TypeVar, cast
+from typing import cast
 
 from sqlalchemy.orm.attributes import InstrumentedAttribute
 
-T = TypeVar("T")
 
-
-def cast_inst_attr(field: T) -> InstrumentedAttribute[T]:
+def cast_inst_attr[T](field: T) -> InstrumentedAttribute[T]:
     return cast(InstrumentedAttribute[T], field)

@@ -1,28 +1,24 @@
 from dependency_injector import containers, providers
 
-from catalog.application.commands.add_cart_command import AddCartCommand
-from catalog.application.commands.add_product_command import AddProductCommand
-from catalog.application.commands.add_products_to_cart_command import (
+from catalog.application.commands import (
+    AddCartCommand,
+    AddProductCommand,
     AddProductsToCartCommand,
-)
-from catalog.application.commands.change_quantities_products_in_cart_command import (
     ChangeQuantitiesProductsInCartCommand,
-)
-from catalog.application.commands.remove_products_from_cart_command import (
     RemoveProductsFromCartCommand,
 )
-from catalog.application.queries.get_cart_by_user_query import (
+from catalog.application.queries import (
     GetCartByUserQuery,
-)
-from catalog.application.queries.get_categories_query import GetCategoriesQuery
-from catalog.application.queries.get_product_query import GetProductQuery
-from catalog.application.queries.paginate_products_query import (
+    GetCategoriesQuery,
+    GetProductQuery,
     PaginateProductsQuery,
 )
 from catalog.domain.ports.uow import AbstractUnitOfWork
-from catalog.domain.services.cart_service import CartService
-from catalog.domain.services.category_service import CategoryService
-from catalog.domain.services.product_service import ProductService
+from catalog.domain.services import (
+    CartService,
+    CategoryService,
+    ProductService,
+)
 from catalog.infrastructure.db.connection import DBConnection, IDBConnection
 from catalog.infrastructure.db.uow import SqlAlchemyUnitOfWork
 from catalog.infrastructure.executable import ExecutableProtocol

@@ -3,8 +3,8 @@ from typing import Self
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
-from ..value_objects import CategoryName
-from .entity import Entity
+from catalog.domain.entities.entity import Entity
+from catalog.domain.value_objects import CategoryName
 
 
 @dataclass(kw_only=True)

@@ -3,11 +3,13 @@ from typing import Sequence
 import jwt
 from pydantic import BaseModel
 
-from .._base import Payload
+from catalog.infrastructure.security._base import Payload
 
 
 class JwtEncoder[PayloadType: BaseModel = Payload]:
-    def __init__(self, key: str, algorithms: Sequence = ["HS256"]):
+    def __init__(
+        self, key: str, algorithms: Sequence[str] = ["HS256"]
+    ) -> None:
         self._key = key
         self._algorithms = algorithms
 

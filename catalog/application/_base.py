@@ -1,7 +1,11 @@
-from abc import ABC
+from abc import ABC, abstractmethod
+from typing import Any
 
 
-class Interactor(ABC): ...
+class Interactor(ABC):
+    @abstractmethod
+    def execute(self, *_: Any, **__: Any) -> Any:
+        pass
 
 
 class Query(Interactor): ...

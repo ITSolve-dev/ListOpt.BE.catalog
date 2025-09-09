@@ -1,9 +1,9 @@
 from pydantic import Field
 from pydantic.dataclasses import dataclass
 
-from ..value_objects.quantity import Quantity
-from .entity import Entity
-from .product import Product
+from catalog.domain.entities.entity import Entity
+from catalog.domain.entities.product import Product
+from catalog.domain.value_objects.quantity import Quantity
 
 
 @dataclass(kw_only=True)

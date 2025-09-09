@@ -3,7 +3,7 @@ from typing import Sequence
 import jwt
 from pydantic import BaseModel
 
-from .._base import Payload
+from catalog.infrastructure.security._base import Payload
 
 
 class JwtDecoder[ReturnType: BaseModel = Payload]:
@@ -11,8 +11,8 @@ class JwtDecoder[ReturnType: BaseModel = Payload]:
         self,
         schema: type[ReturnType],
         key: str,
-        algorithms: Sequence = ["HS256"],
-    ):
+        algorithms: Sequence[str] = ["HS256"],
+    ) -> None:
         self._schema = schema
         self._key = key
         self._algorithms = algorithms

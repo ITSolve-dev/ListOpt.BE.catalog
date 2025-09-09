@@ -19,7 +19,7 @@ from .tables import (
 )
 
 
-def map_entities_on_tables():
+def map_entities_on_tables() -> None:
     mapper_registry.map_imperatively(
         Cart,
         carts_table,

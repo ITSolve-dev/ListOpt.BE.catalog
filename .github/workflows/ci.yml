@@ -13,7 +13,7 @@ permissions:
   deployments: write
 
 jobs:
-  code:
+  lint-format:
     runs-on: ubuntu-latest
     steps:
       - name: Poetry install
@@ -54,7 +54,7 @@ jobs:
         uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/check-docker-build@main
 
   integration-tests:
-    needs: [unit, commit, type, code, build]
+    needs: [unit, commit, type, lint-format, build]
     runs-on: ubuntu-latest
     permissions:
       checks: write

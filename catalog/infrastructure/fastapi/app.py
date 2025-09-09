@@ -1,5 +1,5 @@
 from contextlib import asynccontextmanager
-from typing import cast
+from typing import Any, AsyncGenerator, cast
 
 import uvicorn
 from pydantic import BaseModel
@@ -14,11 +14,9 @@ from starlette.requests import HTTPConnection
 from starlette.types import ExceptionHandler
 
 from catalog import error_names, scopes
-from catalog.domain.exceptions import BaseError, CartAlreadyExistsError
-from catalog.infrastructure.db.orm import (
-    map_entities_on_tables,
-    mapper_registry,
-)
+from catalog.domain.exceptions import CartAlreadyExistsError, CatalogError
+from catalog.infrastructure.db.orm import map_entities_on_tables
+from catalog.infrastructure.db.tables import mapper_registry
 from catalog.infrastructure.executable import ExecutableProtocol
 from catalog.infrastructure.security import (
     JwtService,
@@ -42,8 +40,10 @@ from .jwt_bearer_security import JWTBearerSecurity
 
 class BaseAuthenticationBackend(AuthenticationBackend):
     async def authenticate(
-        self, conn: HTTPConnection
+        self,
+        conn: HTTPConnection,
     ) -> tuple[AuthCredentials, BaseUser] | None:
+        assert conn
         return AuthCredentials(["unauthenticated"]), UnauthenticatedUser()
 
 
@@ -76,11 +76,11 @@ class HTTPApp(FastAPI, ExecutableProtocol):
         self,
         jwt_service: JwtService[PayloadSchema],
         permission_service: PermissionService,
-        *args,
-        server_settings: dict,
-        project_settings: dict,
-        **kwargs,
-    ):
+        *args: Any,
+        server_settings: dict[str, Any],
+        project_settings: dict[str, Any],
+        **kwargs: Any,
+    ) -> None:
         self._config = HTTPAppConfig.model_validate(
             {**server_settings, **project_settings}
         )
@@ -109,12 +109,12 @@ class HTTPApp(FastAPI, ExecutableProtocol):
         )
 
     @asynccontextmanager
-    async def lifespan(self, *args, **kwargs):
+    async def lifespan(self, *_: Any, **__: Any) -> AsyncGenerator[None]:
         map_entities_on_tables()
         yield
         mapper_registry.dispose()
 
-    def run(self, *args, **kwargs):
+    def run(self, *args: Any, **kwargs: Any) -> None:
         uvicorn.run(
             "main:http_app",
             *args,
@@ -125,7 +125,7 @@ class HTTPApp(FastAPI, ExecutableProtocol):
             **kwargs,
         )
 
-    def _configure_routers(self):
+    def _configure_routers(self) -> None:
         self.include_router(health_router)
         self.include_router(
             cart_router,
@@ -140,15 +140,15 @@ class HTTPApp(FastAPI, ExecutableProtocol):
             dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
 
-    def _configure_cors(self): ...
+    def _configure_cors(self) -> None: ...
 
-    def _configure_middlewares(self):
+    def _configure_middlewares(self) -> None:
         self._configure_cors()
 
-    def configure_logger(self): ...
+    def configure_logger(self) -> None: ...
 
-    def _configure_error_handlers(self):
-        self.add_exception_handler(BaseError, self._error_handler)
+    def _configure_error_handlers(self) -> None:
+        self.add_exception_handler(CatalogError, self._error_handler)
         self.add_exception_handler(
             CartAlreadyExistsError,
             self._error_handler_factory(status=status.HTTP_409_CONFLICT),
@@ -160,7 +160,7 @@ class HTTPApp(FastAPI, ExecutableProtocol):
 
     def _error_handler_factory(self, status: int) -> ExceptionHandler:
         async def _handler(_: Request, e: Exception) -> Response:
-            exc = cast(BaseError, e)
+            exc = cast(CatalogError, e)
             response = FailedResponse(
                 ctx=exc.ctx, error=exc.code, info=exc.description
             )
@@ -196,7 +196,7 @@ class HTTPApp(FastAPI, ExecutableProtocol):
         )
 
     async def _error_handler(self, _: Request, e: Exception) -> Response:
-        exc = cast(BaseError, e)
+        exc = cast(CatalogError, e)
         response = FailedResponse(
             ctx=exc.ctx, error=exc.code, info=exc.description
         )
@@ -212,7 +212,7 @@ class HTTPApp(FastAPI, ExecutableProtocol):
             status_code=statuses.get(exc.error, status.HTTP_400_BAD_REQUEST),
         )
 
-    def __get_jwt_bearer_security(self):
+    def __get_jwt_bearer_security(self) -> JWTBearerSecurity:
         return JWTBearerSecurity(
             jwt_decoder=self._jwt_service.jwt_decoder,
             permission_service=self._permission_service,
