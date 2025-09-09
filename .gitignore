@@ -21,6 +21,7 @@ __pycache__/
 # log files (but not folder 'logs')
 *.log
 *.log.zip
+logs/*
 
 # tests
 coverage.xml

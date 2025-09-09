@@ -1,3 +1,4 @@
+import logging
 from typing import Annotated
 
 from dependency_injector.wiring import Provide, inject
@@ -20,6 +21,8 @@ from .schemas import (
     GetProductByIDResponse,
     PaginateProductsResponse,
 )
+
+logger = logging.getLogger(__name__)
 
 product_router = APIRouter(prefix="/products", tags=["Products"])
 
@@ -49,8 +52,9 @@ async def get_product_by_id(
 async def add_product(
     add_product: AddProduct,
     data: AddProductRequest = Body(...),
-    _: UploadFile = File(...),
+    photo: UploadFile = File(...),
 ) -> AddProductResponse:
+    logger.debug(photo)
     product = await add_product(
         AddProductDTO.model_validate(data.model_dump())
     )

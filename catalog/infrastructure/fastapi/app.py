@@ -30,7 +30,7 @@ from catalog.presentation.rest import (
     product_router,
 )
 from catalog.presentation.rest._base_schemas import FailedResponse
-from fastapi import Depends, FastAPI, Request, Response, status
+from fastapi import APIRouter, Depends, FastAPI, Request, Response, status
 from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -91,6 +91,8 @@ class HTTPApp(FastAPI, ExecutableProtocol):
             description=self._config.description,
             version=self._config.version,
             lifespan=self.lifespan,
+            root_path=self._config.root_path,
+            root_path_in_servers=self._config.root_path_in_servers,
             responses={
                 400: {
                     "model": FailedResponse,
@@ -126,19 +128,21 @@ class HTTPApp(FastAPI, ExecutableProtocol):
         )
 
     def _configure_routers(self) -> None:
-        self.include_router(health_router)
-        self.include_router(
+        v1_router = APIRouter(prefix="/v1")
+        v1_router.include_router(health_router)
+        v1_router.include_router(
             cart_router,
             dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
-        self.include_router(
+        v1_router.include_router(
             category_router,
             dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
-        self.include_router(
+        v1_router.include_router(
             product_router,
             dependencies=[Depends(self.__get_jwt_bearer_security())],
         )
+        self.include_router(v1_router)
 
     def _configure_cors(self) -> None: ...
 

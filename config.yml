@@ -3,7 +3,7 @@ server:
   port: 8000
   reload: True
   workers: 1
-  root_path: ""
+  root_path: "/api"
   root_path_in_servers: True
   prefix: ""
   allow_origins: ["*"]

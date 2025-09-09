@@ -12,7 +12,7 @@ class Schema(BaseModel):
 
 class ResponseSchema(Schema):
     __info__: str | None = None
-    info: str | None | None = "Default response"
+    info: str | None = "Default response"
     timestamp: datetime.datetime = Field(
         default_factory=lambda: datetime.datetime.now(datetime.UTC)
     )
@@ -20,6 +20,7 @@ class ResponseSchema(Schema):
 
 class SuccessResponse(ResponseSchema):
     __info__ = "Success response"
+    info: str | None = "Success response"
     ok: bool = True
 
 
