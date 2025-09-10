@@ -63,7 +63,7 @@ class Container(containers.DeclarativeContainer):
 
     db_connection = providers.Singleton[IDBConnection](
         DBConnection,
-        url=config.database.URL.required(),
+        url=config.database.URL.required().as_(str),
         config=config.database,
     )
 

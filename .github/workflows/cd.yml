@@ -23,3 +23,18 @@ jobs:
       packages: write
       contents: read
       deployments: write
+
+  migrations:
+    needs: [build]
+    runs-on: ubuntu-latest
+    env:
+      DATABASE__URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Poetry install
+        uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/poetry-install@main
+        with:
+          python: 3.13.1
+      - name: Migrations
+        run: poetry run alembic upgrade head

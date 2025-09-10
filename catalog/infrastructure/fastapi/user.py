@@ -1,11 +1,11 @@
 from pydantic.dataclasses import dataclass
 from starlette.authentication import BaseUser as StarletteBaseUser
 
-from catalog.infrastructure.security import BaseUser
+from catalog.infrastructure.security import BaseUser as UserWithRole
 
 
 @dataclass(frozen=True, slots=True)
-class User(BaseUser, StarletteBaseUser):
+class User(UserWithRole, StarletteBaseUser):
     id: int
     email: str
 

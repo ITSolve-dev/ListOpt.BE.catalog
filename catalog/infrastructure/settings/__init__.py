@@ -2,7 +2,7 @@ from functools import cache
 from typing import Literal
 
 from dotenv import load_dotenv
-from pydantic import Field, computed_field
+from pydantic import Field, PostgresDsn
 from pydantic_settings import (
     BaseSettings,
     PydanticBaseSettingsSource,
@@ -134,7 +134,7 @@ class PermissionsSettings(BaseSettings):
     model: str = Field(default="permissions_model.conf")
     policy: str = Field(default="policy.csv")
     log: bool = False
-    URL: str = Field(default="http://localhost:8004/permissions")
+    # URL: str = Field(default="http://localhost:8004/permissions")
 
     @classmethod
     def settings_customise_sources(
@@ -156,31 +156,19 @@ class PermissionsSettings(BaseSettings):
 
 class DatabaseSettings(BaseSettings):
     model_config = SettingsConfigDict(
+        env_file=".env",
+        extra="ignore",
         env_prefix="DATABASE__",
         env_file_encoding="utf-8",
         yaml_file="config.yml",
         yaml_config_section="db",
         yaml_file_encoding="utf-8",
     )
-    HOST: str = Field(
-        default="localhost",
-        description="Database host",
-    )
-    PORT: int = Field(
-        default=5432,
-        description="Database port",
-    )
-    USER: str = Field(
-        default="postgres",
-        description="Database user",
-    )
-    PASSWORD: str = Field(
-        default="postgres",
-        description="Database password",
-    )
-    NAME: str = Field(
-        default="db",
-        description="Database name",
+    URL: PostgresDsn = Field(
+        default=PostgresDsn(
+            "postgresql+asyncpg://postgres:postgres@localhost:5432/catalog"
+        ),
+        description="Database URL",
     )
     log: bool = Field(
         default=False,
@@ -188,11 +176,6 @@ class DatabaseSettings(BaseSettings):
     )
     pool_size: int = Field(default=10, description="Database pool size")
     max_overflow: int = Field(default=5, description="Database max overflow")
-
-    @computed_field  # type: ignore[prop-decorator]
-    @property
-    def URL(self) -> str:  # noqa: N802
-        return f"postgresql+asyncpg://{self.USER}:{self.PASSWORD}@{self.HOST}:{self.PORT}/{self.NAME}"
 
     @classmethod
     def settings_customise_sources(
@@ -205,10 +188,10 @@ class DatabaseSettings(BaseSettings):
     ) -> tuple[PydanticBaseSettingsSource, ...]:
         return (
             init_settings,
-            dotenv_settings,
             YamlConfigSettingsSource(settings_cls),
-            file_secret_settings,
+            dotenv_settings,
             env_settings,
+            file_secret_settings,
         )
 
 
