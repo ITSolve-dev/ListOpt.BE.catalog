@@ -31,7 +31,7 @@ jobs:
       DATABASE__URL: ${{ secrets.DATABASE_URL }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Poetry install
         uses: ITSolve-dev/BackOffice.GitHubActions/.github/actions/poetry-install@main
         with:
