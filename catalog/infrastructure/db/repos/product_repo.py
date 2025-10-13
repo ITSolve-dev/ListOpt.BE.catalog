@@ -1,3 +1,4 @@
+from sqlalchemy import Select
 from sqlalchemy.orm import selectinload
 
 from catalog.domain.entities import Product
@@ -20,3 +21,18 @@ class ProductRepoSQL(BaseRepoSQL[Product], ProductRepo):
             )
         )
         return await self.session.scalar(stmt)
+
+    def _pagination_stmt(
+        self, page: int, page_size: int
+    ) -> Select[tuple[Product]]:
+        offset = (page - 1) * page_size
+        stmt = (
+            self._base_select_stmt()
+            .options(
+                selectinload(cast_inst_attr(Product.category)),
+                selectinload(cast_inst_attr(Product.fields)),
+            )
+            .offset(offset)
+            .limit(page_size)
+        )
+        return stmt

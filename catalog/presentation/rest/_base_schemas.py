@@ -2,11 +2,15 @@ import datetime
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
+from pydantic.alias_generators import to_camel
 
 
 class Schema(BaseModel):
     model_config = ConfigDict(
-        from_attributes=True, extra="forbid", arbitrary_types_allowed=True
+        from_attributes=True,
+        extra="forbid",
+        arbitrary_types_allowed=True,
+        alias_generator=to_camel,
     )
 
 

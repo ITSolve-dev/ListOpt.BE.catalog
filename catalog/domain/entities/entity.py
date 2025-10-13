@@ -1,10 +1,14 @@
 import datetime
 
 from pydantic import ConfigDict, Field
+from pydantic.alias_generators import to_camel
 from pydantic.dataclasses import dataclass
 
 
-@dataclass(kw_only=True, config=ConfigDict(arbitrary_types_allowed=True))
+@dataclass(
+    kw_only=True,
+    config=ConfigDict(arbitrary_types_allowed=True, alias_generator=to_camel),
+)
 class Entity:
     id: int | None = Field(default=None, init=False, gt=0)
     created_at: datetime.datetime = Field(
